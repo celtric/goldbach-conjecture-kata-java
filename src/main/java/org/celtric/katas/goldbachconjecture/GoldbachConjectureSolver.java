@@ -26,6 +26,10 @@ public class GoldbachConjectureSolver {
         }
     }
 
+    private int nextPrime(int index) {
+        return primes[index];
+    }
+
     private void assertValidNumber(int aNumber) {
         if (aNumber < 4) {
             throw new IllegalArgumentException("Given number must be equal or greater than 4");
@@ -34,9 +38,5 @@ public class GoldbachConjectureSolver {
         if ((aNumber % 2) != 0) {
             throw new IllegalArgumentException("Given number must be even");
         }
-    }
-
-    private int nextPrime(int index) {
-        return primes[index];
     }
 }
