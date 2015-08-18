@@ -48,6 +48,13 @@ public class GoldbachConjectureSolverTest {
         new GoldbachConjectureSolver().partitionOf(1);
     }
 
+    @Test
+    public void it_rejects_numbers_smaller_than_4() {
+        exception.expect(IllegalArgumentException.class);
+
+        new GoldbachConjectureSolver().partitionOf(2);
+    }
+
     private PartitionAsserter assertPartitionOf(int of) {
         return new PartitionAsserter(of);
     }
