@@ -31,6 +31,11 @@ public class GoldbachConjectureSolverTest {
         assertPartitionOf(12).is(5, 7);
     }
 
+    @Test
+    public void input_of_100_returns_47_and_53() {
+        assertPartitionOf(100).is(47, 53);
+    }
+
     private PartitionAsserter assertPartitionOf(int of) {
         return new PartitionAsserter(of);
     }
