@@ -55,6 +55,13 @@ public class GoldbachConjectureSolverTest {
         new GoldbachConjectureSolver().partitionOf(2);
     }
 
+    @Test
+    public void it_throws_an_exception_if_it_cannot_calculate_the_partition() {
+        exception.expect(RuntimeException.class);
+
+        new GoldbachConjectureSolver().partitionOf(1_000_000);
+    }
+
     private PartitionAsserter assertPartitionOf(int of) {
         return new PartitionAsserter(of);
     }

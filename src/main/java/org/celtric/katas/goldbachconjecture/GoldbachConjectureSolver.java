@@ -27,6 +27,9 @@ public class GoldbachConjectureSolver {
     }
 
     private int nextPrime(int index) {
+        if (index == primes.length) {
+            throw new RuntimeException("Cannot calculate the partition of this number");
+        }
         return primes[index];
     }
 
