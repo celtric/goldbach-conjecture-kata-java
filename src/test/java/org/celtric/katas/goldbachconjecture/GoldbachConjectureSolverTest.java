@@ -1,10 +1,15 @@
 package org.celtric.katas.goldbachconjecture;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
 public class GoldbachConjectureSolverTest {
+
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void input_of_4_returns_2_and_2() {
@@ -34,6 +39,13 @@ public class GoldbachConjectureSolverTest {
     @Test
     public void input_of_100_returns_47_and_53() {
         assertPartitionOf(100).is(47, 53);
+    }
+
+    @Test
+    public void it_rejects_non_even_numbers() {
+        exception.expect(IllegalArgumentException.class);
+
+        new GoldbachConjectureSolver().partitionOf(1);
     }
 
     private PartitionAsserter assertPartitionOf(int of) {

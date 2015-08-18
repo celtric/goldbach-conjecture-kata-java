@@ -8,6 +8,8 @@ public class GoldbachConjectureSolver {
     private static final int[] primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
 
     public int[] partitionOf(int ofNumber) {
+        assertEvenNumber(ofNumber);
+
         List<Integer> primesInContext = new ArrayList<>();
         int lastPrimeAdded;
         int lastPrimeIndex = -1;
@@ -21,6 +23,12 @@ public class GoldbachConjectureSolver {
                     return new int[]{current, lastPrimeAdded};
                 }
             }
+        }
+    }
+
+    private void assertEvenNumber(int aNumber) {
+        if ((aNumber % 2) != 0) {
+            throw new IllegalArgumentException("Given number must be even");
         }
     }
 
